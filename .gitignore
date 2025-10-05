@@ -1,0 +1,30 @@
+# OS-specific
+.DS_Store
+assets/.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# Local tooling (Codex CLI)
+.codex/
+
+# Local specs and scaffolding (not for production site)
+.specify/
+
+# Editor settings (optional)
+.vscode/
+.idea/
+.history/
+
+# Environment files
+.env
+.env.*
+*.env
+
+# Logs and caches
+*.log
+logs/
+
+# Build artifacts (if any)
+dist/
+build/
+node_modules/

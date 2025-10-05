@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="bg">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Контакт – Dental Studio</title>
+    <meta name="description" content="Свържете се с Dental Studio в София. Адрес, телефон, имейл, работно време и форма за контакт." />
+    <link rel="canonical" href="https://coloursdental.netlify.app/bg/contact.html" />
+    <link rel="alternate" hreflang="bg" href="https://coloursdental.netlify.app/bg/contact.html" />
+    <link rel="alternate" hreflang="en" href="https://coloursdental.netlify.app/en/contact.html" />
+    <link rel="alternate" hreflang="x-default" href="https://coloursdental.netlify.app/en/contact.html" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="bg_BG" />
+    <meta property="og:title" content="Контакт – Dental Studio" />
+    <meta property="og:description" content="Свържете се с Dental Studio в София. Адрес, телефон, имейл, работно време и форма за контакт." />
+    <meta property="og:image" content="https://coloursdental.netlify.app/assets/img/og-hero.jpg" />
+    <meta property="og:url" content="https://coloursdental.netlify.app/bg/contact.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Контакт – Dental Studio" />
+    <meta name="twitter:description" content="Свържете се с Dental Studio в София. Адрес, телефон, имейл, работно време и форма за контакт." />
+    <meta name="twitter:image" content="https://coloursdental.netlify.app/assets/img/og-hero.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="index.html">
+          <object data="../animated-logo.svg" type="image/svg+xml" class="logo-svg" aria-label="Dental Studio"></object>
+        </a>
+        <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Отвори меню">☰</button>
+        <nav id="primary-menu" class="menu" aria-label="Primary">
+          <a href="index.html">Начало</a>
+          <a href="services.html">Услуги</a>
+          <a href="doctors.html">Лекари</a>
+          <a href="clinic.html">Клиниката</a>
+          <a href="contact.html" aria-current="page">Контакт</a>
+        </nav>
+        <div class="lang-switch" aria-label="Language">
+          <a href="../en/contact.html">EN</a>
+          |
+          <a href="contact.html" aria-current="page">BG</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="content">
+      <section class="hero">
+        <div class="container hero-inner">
+          <h1>Контакт</h1>
+          <p>Ние сме насреща. Свържете се с нас.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="container grid grid-2">
+          <div>
+            <h2>Данни за контакт</h2>
+            <p><strong>Адрес:</strong> ул. Усмивка 123, София</p>
+            <p><strong>Телефон:</strong> <a href="tel:+359881234567">+359 88 123 4567</a></p>
+            <p><strong>Имейл:</strong> <a href="mailto:info@dentalstudio.bg">info@dentalstudio.bg</a></p>
+            <p><strong>Работно време:</strong> Пон–Пет: 9:00–19:00, Съб: 10:00–14:00, Нед: Почивен</p>
+            <div style="margin-top:12px;">
+              <iframe title="Намираме се на картата" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2934.000000!2d23.321!3d42.697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa8570!2sSofia!5e0!3m2!1sbg!2sbg!4v0000000000" width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+
+          <div id="form">
+            <h2>Изпратете съобщение</h2>
+            <form aria-describedby="form-status" novalidate>
+              <div class="form-row">
+                <label for="name">Име</label>
+                <input id="name" name="name" type="text" required aria-required="true" />
+              </div>
+              <div class="form-row">
+                <label for="email">Имейл</label>
+                <input id="email" name="email" type="email" required aria-required="true" />
+              </div>
+              <div class="form-row">
+                <label for="message">Съобщение</label>
+                <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+              </div>
+              <button class="btn" type="submit">Изпрати съобщение</button>
+              <p id="form-status" class="visually-hidden" aria-live="polite" data-success="Благодарим! Ще се свържем с вас скоро." data-error="Моля, проверете формата и опитайте отново."></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <h4>Dental Studio</h4>
+          <p>ул. Усмивка 123, София</p>
+          <p>+359 88 123 4567</p>
+          <p><a href="mailto:info@dentalstudio.bg">info@dentalstudio.bg</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Бързи връзки</h4>
+          <p><a href="services.html">Услуги</a></p>
+          <p><a href="doctors.html">Лекари</a></p>
+          <p><a href="clinic.html">Клиниката</a></p>
+          <p><a href="contact.html">Контакт</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Последвайте ни</h4>
+          <p><a href="#">Facebook</a></p>
+          <p><a href="#">Instagram</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Правна информация</h4>
+          <p><a href="#">Политика за поверителност</a></p>
+          <p>Всички права запазени.</p>
+        </div>
+      </div>
+      <div class="container copyright">© <span id="year"></span> Dental Studio</div>
+    </footer>
+    <script src="../assets/js/site.js" defer></script>
+  </body>
+  </html>

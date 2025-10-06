@@ -1,4 +1,4 @@
-"use strict";
+﻿"use strict";
 
 document.addEventListener("DOMContentLoaded", function () {
   // Reveal page once DOM is ready (matches CSS body.loaded fade-in)
@@ -11,14 +11,19 @@ document.addEventListener("DOMContentLoaded", function () {
   function closeMobileMenu() {
     if (!mobileMenuToggle || !mobileMenu) return;
     mobileMenu.classList.remove("is-open");
+    mobileMenuToggle.classList.remove("is-open");
     mobileMenuToggle.setAttribute("aria-expanded", "false");
     mobileMenuToggle.setAttribute("aria-label", "Open menu");
-    document.body.style.overflow = "";
+    // Delay body overflow change to allow animation to complete
+    setTimeout(() => {
+      document.body.style.overflow = "";
+    }, 300);
   }
 
   function openMobileMenu() {
     if (!mobileMenuToggle || !mobileMenu) return;
     mobileMenu.classList.add("is-open");
+    mobileMenuToggle.classList.add("is-open");
     mobileMenuToggle.setAttribute("aria-expanded", "true");
     mobileMenuToggle.setAttribute("aria-label", "Close menu");
     document.body.style.overflow = "hidden";
@@ -332,7 +337,73 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => restartLogoAnimation(logoObject), 500);
   });
 
+  // Prevent context menu and selection on logo to avoid blue selection rectangle
+  const logoImages = document.querySelectorAll(".logo-svg");
+  logoImages.forEach(function(logo) {
+    // Prevent context menu
+    logo.addEventListener("contextmenu", function(e) {
+      e.preventDefault();
+    });
+    
+    // Prevent drag and drop
+    logo.addEventListener("dragstart", function(e) {
+      e.preventDefault();
+    });
+    
+    // Prevent selection on mouse down
+    logo.addEventListener("mousedown", function(e) {
+      e.preventDefault();
+    });
+    
+    // Prevent selection on mouse up
+    logo.addEventListener("mouseup", function(e) {
+      e.preventDefault();
+    });
+    
+    // Clear any existing selection
+    logo.addEventListener("selectstart", function(e) {
+      e.preventDefault();
+    });
+    
+    // Additional prevention for touch devices
+    logo.addEventListener("touchstart", function(e) {
+      e.preventDefault();
+    });
+  });
+
   // Footer year (remove inline duplicates in HTML)
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+  // Theme toggle functionality
+  const themeToggle = document.querySelector(".theme-toggle");
+  
+  console.log("Theme toggle button found:", !!themeToggle);
+  
+  // Get saved theme or default to light
+  const savedTheme = localStorage.getItem("theme") || "light";
+  console.log("Saved theme:", savedTheme);
+  
+  // Apply saved theme on page load
+  document.documentElement.setAttribute("data-theme", savedTheme);
+  
+  if (themeToggle) {
+    themeToggle.addEventListener("click", function() {
+      console.log("Theme toggle clicked!");
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      
+      console.log("Switching from", currentTheme, "to", newTheme);
+      
+      // Update theme
+      document.documentElement.setAttribute("data-theme", newTheme);
+      
+      // Save to localStorage
+      localStorage.setItem("theme", newTheme);
+      
+      console.log("Theme updated successfully");
+    });
+  } else {
+    console.error("Theme toggle button not found!");
+  }
 });

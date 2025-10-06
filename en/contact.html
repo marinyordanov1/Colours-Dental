@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -30,7 +30,7 @@
     <header class="site-header">
       <div class="container nav">
         <a class="brand" href="index.html">
-          <object data="../animated-logo.svg" type="image/svg+xml" class="logo-svg" aria-label="Dental Studio"></object>
+          <img src="../abc.png" alt="Dental Studio" class="logo-svg">
         </a>
         <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Open menu">☰</button>
         <nav id="primary-menu" class="menu" aria-label="Primary">
@@ -39,12 +39,19 @@
           <a href="doctors.html">Doctors</a>
           <a href="clinic.html">The Clinic</a>
           <a href="contact.html" aria-current="page">Contact</a>
+          <div class="lang-switch mobile-lang-switch" aria-label="Language">
+            <a href="contact.html" aria-current="page">EN</a>
+            |
+            <a href="../bg/contact.html">BG</a>
+          </div>
         </nav>
-        <div class="lang-switch" aria-label="Language">
+        <div class="lang-switch desktop-lang-switch" aria-label="Language">
           <a href="contact.html" aria-current="page">EN</a>
           |
           <a href="../bg/contact.html">BG</a>
         </div>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        </button>
       </div>
     </header>
 

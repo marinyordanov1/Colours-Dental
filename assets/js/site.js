@@ -213,6 +213,151 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
+  // Carousels (hero + gallery)
+  const carousels = document.querySelectorAll(".carousel");
+  if (carousels.length) {
+    carousels.forEach(function (carousel) {
+      initializeCarousel(carousel);
+    });
+  }
+
+  function initializeCarousel(carousel) {
+    const track = carousel.querySelector(".carousel-track");
+    const slides = carousel.querySelectorAll(".carousel-slide");
+    const prevButton = carousel.querySelector(".carousel-control.prev");
+    const nextButton = carousel.querySelector(".carousel-control.next");
+    const indicatorsContainer = carousel.querySelector(".carousel-indicators");
+    const indicators = carousel.querySelectorAll(".carousel-indicator");
+    if (!track || !slides.length) return;
+
+    const getSlidesPerView = () => {
+      const styles = window.getComputedStyle(carousel);
+      const value = parseFloat(styles.getPropertyValue("--carousel-visible"));
+      if (!Number.isFinite(value) || value <= 0) return 1;
+      return Math.max(1, Math.round(value));
+    };
+
+    let slidesPerView = getSlidesPerView();
+    let activeIndex = 0;
+    const getMaxIndex = () => Math.max(slides.length - slidesPerView, 0);
+
+    const normalizeIndex = (index, maxIndexValue) => {
+      const limit =
+        typeof maxIndexValue === "number" ? maxIndexValue : getMaxIndex();
+      if (limit <= 0) return 0;
+      const totalSteps = limit + 1;
+      return ((index % totalSteps) + totalSteps) % totalSteps;
+    };
+
+    const updateNavigationState = () => {
+      const maxIndex = getMaxIndex();
+      const hideNav = maxIndex === 0;
+      if (prevButton) prevButton.hidden = hideNav;
+      if (nextButton) nextButton.hidden = hideNav;
+      if (indicatorsContainer) indicatorsContainer.hidden = hideNav;
+      indicators.forEach((indicator, indicatorIndex) => {
+        indicator.hidden = indicatorIndex > maxIndex;
+      });
+    };
+
+    const getTrackGap = () => {
+      const trackStyles = window.getComputedStyle(track);
+      const columnGap = parseFloat(trackStyles.columnGap);
+      if (Number.isFinite(columnGap)) return columnGap;
+      const fallbackGap = parseFloat(trackStyles.gap);
+      return Number.isFinite(fallbackGap) ? fallbackGap : 0;
+    };
+
+    const getSlideWidth = () => {
+      const firstSlide = slides[0];
+      if (!firstSlide) return 0;
+      return firstSlide.getBoundingClientRect().width;
+    };
+
+    const setActiveSlide = function (index) {
+      const maxIndex = getMaxIndex();
+      const normalizedIndex = normalizeIndex(index, maxIndex);
+      activeIndex = normalizedIndex;
+      const slideWidth = getSlideWidth();
+      const gapValue = getTrackGap();
+      const offsetValue =
+        slides.length <= slidesPerView
+          ? 0
+          : normalizedIndex * (slideWidth + gapValue);
+      track.style.transform = `translateX(-${offsetValue}px)`;
+      slides.forEach(function (slide, slideIndex) {
+        const isActive =
+          slides.length <= slidesPerView ||
+          (slideIndex >= normalizedIndex &&
+            slideIndex < normalizedIndex + slidesPerView);
+        slide.classList.toggle("is-active", isActive);
+        slide.setAttribute("aria-hidden", isActive ? "false" : "true");
+      });
+      indicators.forEach(function (indicator, indicatorIndex) {
+        const isActive = indicatorIndex === normalizedIndex;
+        indicator.classList.toggle("is-active", isActive);
+        indicator.setAttribute("aria-pressed", isActive ? "true" : "false");
+        indicator.setAttribute("aria-current", isActive ? "true" : "false");
+        indicator.setAttribute("aria-selected", isActive ? "true" : "false");
+      });
+      updateNavigationState();
+    };
+
+    setActiveSlide(activeIndex);
+
+    if (prevButton) {
+      prevButton.addEventListener("click", function () {
+        setActiveSlide(activeIndex - 1);
+      });
+    }
+    if (nextButton) {
+      nextButton.addEventListener("click", function () {
+        setActiveSlide(activeIndex + 1);
+      });
+    }
+    if (indicators.length) {
+      indicators.forEach(function (indicator, indicatorIndex) {
+        indicator.addEventListener("click", function () {
+          setActiveSlide(indicatorIndex);
+        });
+      });
+    }
+
+    const handleResize = () => {
+      const newSlidesPerView = getSlidesPerView();
+      if (newSlidesPerView === slidesPerView) return;
+      slidesPerView = newSlidesPerView;
+      setActiveSlide(activeIndex);
+    };
+    window.addEventListener("resize", handleResize);
+
+    if ("PointerEvent" in window) {
+      let pointerStartX = 0;
+      let pointerActive = false;
+
+      const cancelPointer = function () {
+        pointerActive = false;
+      };
+
+      carousel.addEventListener("pointerdown", function (event) {
+        if (event.pointerType === "mouse" && event.button !== 0) return;
+        if (event.target.closest(".carousel-control") || event.target.closest(".carousel-indicators")) return;
+        pointerActive = true;
+        pointerStartX = event.clientX;
+      });
+      carousel.addEventListener("pointerup", function (event) {
+        if (!pointerActive) return;
+        const deltaX = event.clientX - pointerStartX;
+        if (Math.abs(deltaX) > 40) {
+          setActiveSlide(deltaX < 0 ? activeIndex + 1 : activeIndex - 1);
+        }
+        cancelPointer();
+      });
+      carousel.addEventListener("pointerleave", cancelPointer);
+      carousel.addEventListener("pointercancel", cancelPointer);
+    }
+  }
+
   // Lightbox (only if gallery present)
   const lightboxContainer = document.getElementById("lightbox");
   const lightboxImage = document.getElementById("lightbox-img");

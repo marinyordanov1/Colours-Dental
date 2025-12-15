@@ -9,6 +9,7 @@ Thumbs.db
 .Agents.md
 .create-prd.md
 .generate-tasks.md
+.tasks/
 
 # Local specs and scaffolding (not for production site)
 .specify/

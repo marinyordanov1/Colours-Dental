@@ -1,38 +1,81 @@
-﻿<!doctype html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>The Clinic – Dental Studio</title>
-    <meta name="description" content="Modern dental clinic in Sofia with advanced technology and strict hygiene." />
-    <link rel="canonical" href="https://coloursdental.netlify.app/en/clinic.html" />
-    <link rel="alternate" hreflang="en" href="https://coloursdental.netlify.app/en/clinic.html" />
-    <link rel="alternate" hreflang="bg" href="https://coloursdental.netlify.app/bg/clinic.html" />
-    <link rel="alternate" hreflang="x-default" href="https://coloursdental.netlify.app/en/clinic.html" />
+    <meta
+      name="description"
+      content="Modern dental clinic in Sofia with advanced technology and strict hygiene."
+    />
+    <link
+      rel="canonical"
+      href="https://coloursdental.netlify.app/en/clinic.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://coloursdental.netlify.app/en/clinic.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="bg"
+      href="https://coloursdental.netlify.app/bg/clinic.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://coloursdental.netlify.app/en/clinic.html"
+    />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:title" content="The Clinic – Dental Studio" />
-    <meta property="og:description" content="Modern dental clinic in Sofia with advanced technology and strict hygiene." />
-    <meta property="og:image" content="https://coloursdental.netlify.app/assets/img/og-hero.jpg" />
-    <meta property="og:url" content="https://coloursdental.netlify.app/en/clinic.html" />
+    <meta
+      property="og:description"
+      content="Modern dental clinic in Sofia with advanced technology and strict hygiene."
+    />
+    <meta
+      property="og:image"
+      content="https://coloursdental.netlify.app/assets/img/og-hero.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://coloursdental.netlify.app/en/clinic.html"
+    />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="The Clinic – Dental Studio" />
-    <meta name="twitter:description" content="Modern dental clinic in Sofia with advanced technology and strict hygiene." />
-    <meta name="twitter:image" content="https://coloursdental.netlify.app/assets/img/og-hero.jpg" />
+    <meta
+      name="twitter:description"
+      content="Modern dental clinic in Sofia with advanced technology and strict hygiene."
+    />
+    <meta
+      name="twitter:image"
+      content="https://coloursdental.netlify.app/assets/img/og-hero.jpg"
+    />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../assets/css/styles.css" />
   </head>
   <body>
     <header class="site-header">
       <div class="container nav">
         <a class="brand" href="index.html">
-          <img src="../abc.png" alt="Dental Studio" class="logo-svg">
+          <img src="../abc.png" alt="Dental Studio" class="logo-svg" />
         </a>
-        <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Open menu">☰</button>
+        <button
+          class="menu-toggle"
+          aria-controls="primary-menu"
+          aria-expanded="false"
+          aria-label="Open menu"
+        >
+          ☰
+        </button>
         <nav id="primary-menu" class="menu" aria-label="Primary">
           <a href="index.html">Home</a>
           <a href="services.html">Services</a>
@@ -50,16 +93,78 @@
           |
           <a href="../bg/clinic.html">BG</a>
         </div>
-        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
-        </button>
+        <button
+          class="theme-toggle"
+          aria-label="Toggle dark mode"
+          title="Toggle dark mode"
+        ></button>
       </div>
     </header>
 
     <main id="content">
-      <section class="hero">
+      <section class="hero hero-with-carousel">
         <div class="container hero-inner">
-          <h1>The Clinic</h1>
-          <p>A welcoming, modern space designed for your comfort.</p>
+          <div class="hero-content">
+            <p class="eyebrow">Colours Dental · Sofia</p>
+            <h1>The Clinic</h1>
+            <p>
+              A calming, modern environment curated to make every visit
+              effortless and inspiring.
+            </p>
+            <ul class="hero-highlights">
+              <li>Cutting-edge equipment</li>
+              <li>Sanitised suites</li>
+              <li>Personalised care</li>
+            </ul>
+            <div class="hero-cta-group">
+              <a class="btn primary" href="contact.html">Book a Visit</a>
+              <a class="btn ghost" href="services.html">Explore Services</a>
+            </div>
+          </div>
+          <div class="hero-carousel carousel" data-carousel="hero">
+            <div class="carousel-track">
+              <div class="carousel-slide is-active">
+                <img
+                  src="../assets/images/Clinic/8.jpg"
+                  alt="Modern Colours Dental treatment room"
+                />
+              </div>
+              <div class="carousel-slide">
+                <img
+                  src="../assets/images/Clinic/12.jpg"
+                  alt="Bright Colours Dental lounge area"
+                />
+              </div>
+            </div>
+            <button
+              class="carousel-control prev"
+              type="button"
+              aria-label="Previous slide"
+            >
+              <span aria-hidden="true">‹</span>
+            </button>
+            <button
+              class="carousel-control next"
+              type="button"
+              aria-label="Next slide"
+            >
+              <span aria-hidden="true">›</span>
+            </button>
+            <div class="carousel-indicators" role="tablist">
+              <button
+                class="carousel-indicator is-active"
+                type="button"
+                aria-label="Go to slide 1"
+                role="tab"
+              ></button>
+              <button
+                class="carousel-indicator"
+                type="button"
+                aria-label="Go to slide 2"
+                role="tab"
+              ></button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -67,11 +172,16 @@
         <div class="container grid grid-2">
           <div>
             <h2>Modern Technology</h2>
-            <p class="lead">Digital X-ray; Intraoral scanner; Autoclave sterilization.</p>
+            <p class="lead">
+              Digital X-ray; Intraoral scanner; Autoclave sterilization.
+            </p>
           </div>
           <div>
             <h2>Hygiene &amp; Patient Care</h2>
-            <p>Strict sterilization protocols and single-use materials to ensure safety and comfort.</p>
+            <p>
+              Strict sterilization protocols and single-use materials to ensure
+              safety and comfort.
+            </p>
           </div>
         </div>
       </section>
@@ -79,10 +189,147 @@
       <section>
         <div class="container">
           <h2>Photo Gallery</h2>
-          <div class="gallery">
-            <img src="../assets/img/gallery-1.jpg" alt="Reception area" />
-            <img src="../assets/img/gallery-2.jpg" alt="Treatment room" />
-            <img src="../assets/img/gallery-3.jpg" alt="Dental equipment" />
+          <div class="gallery carousel" data-carousel="clinic-gallery">
+            <div class="carousel-track">
+              <div class="carousel-slide is-active">
+                <img
+                  src="../assets/images/Clinic/1.PNG"
+                  alt="Reception detail inside the clinic"
+                />
+              </div>
+              <div class="carousel-slide">
+                <img
+                  src="../assets/images/Clinic/2.PNG"
+                  alt="Comfortable waiting zone"
+                  loading="lazy"
+                />
+              </div>
+              <div class="carousel-slide">
+                <img
+                  src="../assets/images/Clinic/3.PNG"
+                  alt="Sterilization and hygiene preparation room"
+                  loading="lazy"
+                />
+              </div>
+              <div class="carousel-slide">
+                <img
+                  src="../assets/images/Clinic/5.PNG"
+                  alt="Intraoral scanner setup"
+                  loading="lazy"
+                />
+              </div>
+              <div class="carousel-slide">
+                <img
+                  src="../assets/images/Clinic/6.PNG"
+                  alt="Detail of Colours Dental laboratory tools"
+                  loading="lazy"
+                />
+              </div>
+              <div class="carousel-slide">
+                <img
+                  src="../assets/images/Clinic/7.PNG"
+                  alt="Sterilization equipment at the clinic"
+                  loading="lazy"
+                />
+              </div>
+              <div class="carousel-slide">
+                <img
+                  src="../assets/images/Clinic/9.PNG"
+                  alt="Patient consultation area"
+                  loading="lazy"
+                />
+              </div>
+              <div class="carousel-slide">
+                <img
+                  src="../assets/images/Clinic/10.PNG"
+                  alt="Treatment plan discussion room"
+                  loading="lazy"
+                />
+              </div>
+              <div class="carousel-slide">
+                <img
+                  src="../assets/images/Clinic/11.PNG"
+                  alt="Clinic hallway and lighting"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <button
+              class="carousel-control prev"
+              type="button"
+              aria-label="Previous image"
+            >
+              <span aria-hidden="true">‹</span>
+            </button>
+            <button
+              class="carousel-control next"
+              type="button"
+              aria-label="Next image"
+            >
+              <span aria-hidden="true">›</span>
+            </button>
+            <div class="carousel-indicators" role="tablist">
+              <button
+                class="carousel-indicator is-active"
+                type="button"
+                aria-label="Go to image 1"
+                role="tab"
+              ></button>
+              <button
+                class="carousel-indicator"
+                type="button"
+                aria-label="Go to image 2"
+                role="tab"
+              ></button>
+              <button
+                class="carousel-indicator"
+                type="button"
+                aria-label="Go to image 3"
+                role="tab"
+              ></button>
+              <button
+                class="carousel-indicator"
+                type="button"
+                aria-label="Go to image 4"
+                role="tab"
+              ></button>
+              <button
+                class="carousel-indicator"
+                type="button"
+                aria-label="Go to image 5"
+                role="tab"
+              ></button>
+              <button
+                class="carousel-indicator"
+                type="button"
+                aria-label="Go to image 6"
+                role="tab"
+              ></button>
+              <button
+                class="carousel-indicator"
+                type="button"
+                aria-label="Go to image 7"
+                role="tab"
+              ></button>
+              <button
+                class="carousel-indicator"
+                type="button"
+                aria-label="Go to image 8"
+                role="tab"
+              ></button>
+              <button
+                class="carousel-indicator"
+                type="button"
+                aria-label="Go to image 9"
+                role="tab"
+              ></button>
+              <button
+                class="carousel-indicator"
+                type="button"
+                aria-label="Go to image 10"
+                role="tab"
+              ></button>
+            </div>
           </div>
         </div>
       </section>
@@ -114,8 +361,10 @@
           <p>All rights reserved.</p>
         </div>
       </div>
-      <div class="container copyright">© <span id="year"></span> Dental Studio</div>
+      <div class="container copyright">
+        © <span id="year"></span> Dental Studio
+      </div>
     </footer>
     <script src="../assets/js/site.js" defer></script>
   </body>
-  </html>
+</html>

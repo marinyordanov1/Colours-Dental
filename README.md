@@ -1,2 +1,2 @@
-[colours-dental.netlify.app
-](https://colours-dental.netlify.app/)
+[colours.bg
+](https://colours.bg/)

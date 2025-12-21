@@ -6,10 +6,10 @@ Thumbs.db
 
 # Local tooling (Codex CLI)
 .codex/
-.Agents.md
-.create-prd.md
-.generate-tasks.md
-.tasks/
+AGENTS.md
+create-prd.md
+generate-tasks.md
+tasks/
 
 # Local specs and scaffolding (not for production site)
 .specify/

@@ -516,6 +516,50 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // Expandable Cards logic
+  const toggleButtons = document.querySelectorAll('[data-action="toggle-card"]');
+  const currentLang = document.documentElement.lang || "en";
+
+  const translations = {
+    en: {
+      expand: "Learn More",
+      collapse: "Show Less",
+    },
+    bg: {
+      expand: "Научи повече",
+      collapse: "Виж по-малко",
+    },
+  };
+
+  toggleButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const card = this.closest(".card");
+      if (!card) return;
+
+      const description = card.querySelector(".card-description");
+      if (!description) return;
+
+      const isExpanded = description.classList.contains("expanded");
+
+      if (isExpanded) {
+        // Collapse
+        description.style.maxHeight = null; // Revert to CSS default (4.8em)
+        description.classList.remove("expanded");
+      } else {
+        // Expand
+        // Set explicit height for transition
+        description.style.maxHeight = description.scrollHeight + "px";
+        description.classList.add("expanded");
+      }
+      
+      // Update button text
+      const lang = translations[currentLang] ? currentLang : "en";
+      this.textContent = !isExpanded 
+        ? translations[lang].collapse 
+        : translations[lang].expand;
+    });
+  });
+
   // Footer year (remove inline duplicates in HTML)
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
